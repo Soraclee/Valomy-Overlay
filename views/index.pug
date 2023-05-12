@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    #{console.log(dataPlayer)}
+    div(id="overlay" class="global-overlay slide-out")
+        div(class="overlay-background")
+        div(class="overlay")
+            div(class="head-overlay")
+                div(class="left-overlay")
+                    img(class="rank-user" src="" alt="Radiant")
+                div(class="right-overlay")
+                    div(class="rank-name")
+                        span Radiant
+                    hr
+                    div(class="stats")
+                        p 1.2 KDA
+                        p 175 Wins
+                        p 1910 Elo
+
