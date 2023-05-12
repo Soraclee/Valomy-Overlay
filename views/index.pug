@@ -1,19 +1,19 @@
 extends layout
 
 block content
-    #{console.log(dataPlayer)}
+    - let last_season = dataPlayer.by_season[Object.keys(dataPlayer.by_season)[Object.keys(dataPlayer.by_season).length - 1]]
     div(id="overlay" class="global-overlay slide-out")
         div(class="overlay-background")
         div(class="overlay")
             div(class="head-overlay")
                 div(class="left-overlay")
-                    img(class="rank-user" src="" alt="Radiant")
+                    img(class="rank-user" src=`${dataPlayer.current_data.images.small}` alt="Radiant")
                 div(class="right-overlay")
                     div(class="rank-name")
-                        span Radiant
+                        span #{dataPlayer.current_data.currenttierpatched}
                     hr
                     div(class="stats")
                         p 1.2 KDA
-                        p 175 Wins
-                        p 1910 Elo
+                        p #{last_season.wins} Wins
+                        p #{dataPlayer.current_data.elo} Elo
 
