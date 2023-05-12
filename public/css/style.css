@@ -1,0 +1,130 @@
+@font-face {
+  font-family: euclid circular a;
+  src: local("Euclid Circular A"),
+    url("https://fonts.cdnfonts.com/s/60248/Euclid Circular A Regular.woff")
+      format("woff");
+  font-style: normal;
+  font-weight: 400;
+}
+
+body {
+  background-color: transparent;
+  font-family: euclid circular a;
+}
+
+.global-overlay {
+  position: absolute;
+  float: right;
+  right: -138px;
+}
+
+.overlay-background {
+  background-image: url("https://media.valorant-api.com/playercards/b5314b3f-4532-9e41-bc1f-13954a4c6829/wideart.png");
+  background-repeat: round;
+  opacity: 0.1;
+  float: right;
+  width: 200px;
+  height: 65px;
+  border-radius: 5px;
+  position: absolute;
+}
+
+hr {
+  margin: 0;
+  border-color: #fff;
+}
+
+.overlay {
+  float: right;
+  background-color: rgb(66, 117, 253, 0.7);
+  width: 200px;
+  height: 65px;
+  border-radius: 5px;
+}
+
+.head-overlay {
+  width: auto;
+}
+
+.head-overlay {
+  display: flex;
+  height: 100%;
+}
+
+.rank-user {
+  width: auto;
+  height: 75%;
+  display: flex;
+}
+
+.right-overlay {
+  width: 100%;
+  margin: 5px;
+}
+
+.left-overlay {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.right-overlay .rank-name {
+  color: #fff;
+}
+
+.right-overlay .stats {
+  display: flex;
+  font-size: 0.8em;
+  color: #fff;
+}
+
+.right-overlay .stats p {
+  margin: 0;
+  margin-right: 10px;
+}
+
+.slide-in {
+  animation: slide-in 0.5s forwards;
+  -webkit-animation: slide-in 0.5s forwards;
+}
+
+.slide-out {
+  animation: slide-out 0.5s forwards;
+  -webkit-animation: slide-out 0.5s forwards;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-75%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes slide-in {
+  100% {
+    -webkit-transform: translateX(0%);
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-75%);
+  }
+}
+
+@-webkit-keyframes slide-out {
+  0% {
+    -webkit-transform: translateX(0%);
+  }
+
+  100% {
+    -webkit-transform: translateX(-75%);
+  }
+}
