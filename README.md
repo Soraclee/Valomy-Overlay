@@ -1,5 +1,9 @@
 # Valomy (Valorant Overlay)
 
+![DOWNLOAD](https://img.shields.io/github/downloads/soraclee/valorantoverlay/total?style=for-the-badge)
+![ISSUES](https://img.shields.io/github/issues/soraclee/valorantoverlay?style=for-the-badge)
+![LICENSE](https://img.shields.io/github/license/soraclee/ValorantOverlay?style=for-the-badge)
+
 **Valomy** is a stream overlay for Valorant, it shows you automatically thanks to the Valorant api your rank and statistics of the account connected on Valorant
 
 **Steps to set up the overlay on your stream :**
