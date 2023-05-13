@@ -6,6 +6,7 @@ block content
         let subject = !{JSON.stringify(subjectPlayer)};
         let dataPlayer;
         let infosPlayerData;
+        let region = !{JSON.stringify(regionPlayer)};
 
         async function updateSubjectPlayer() {
             try {
@@ -21,7 +22,7 @@ block content
 
         async function updateDisplay() {
             try {
-                let resultDataPlayer = await searchPlayerbySubject(subject.subjectPlayer || subject)
+                let resultDataPlayer = await searchPlayerbySubject(subject.subjectPlayer || subject, region)
                 dataPlayer = resultDataPlayer.data
 
                 let nametagPlayer = dataPlayer.name + "#" + dataPlayer.tag
@@ -32,14 +33,25 @@ block content
                 // Update Display
 
                 let last_season = dataPlayer.by_season[Object.keys(dataPlayer.by_season)[Object.keys(dataPlayer.by_season).length - 1]]
+
+                if(dataPlayer.current_data.elo != null) {
                 
-                document.querySelector('.overlay-background').style.backgroundImage = `url(${infosPlayerData.card.wide})`
-                document.querySelector('.rank-user').src = dataPlayer.current_data.images.small
-                document.querySelector('.rank-user').alt = dataPlayer.current_data.currenttierpatched
-                document.querySelector('.rank-name span').textContent = dataPlayer.current_data.currenttierpatched
-                document.querySelector('.stats p:nth-of-type(1)').textContent = `${infosPlayerData.account_level} Lvl`
-                document.querySelector('.stats p:nth-of-type(2)').textContent = `${dataPlayer.current_data.elo} Elo`
-                document.querySelector('.stats p:nth-of-type(3)').textContent = `${last_season.wins} Wins`
+                    document.querySelector('.overlay-background').style.backgroundImage = `url(${infosPlayerData.card.wide})`
+                    document.querySelector('.rank-user').src = dataPlayer.current_data.images.small
+                    document.querySelector('.rank-user').alt = dataPlayer.current_data.currenttierpatched
+                    document.querySelector('.rank-name span').textContent = dataPlayer.current_data.currenttierpatched
+                    document.querySelector('.stats p:nth-of-type(1)').textContent = `${infosPlayerData.account_level} Lvl`
+                    document.querySelector('.stats p:nth-of-type(2)').textContent = `${dataPlayer.current_data.elo} Elo`
+                    document.querySelector('.stats p:nth-of-type(3)').textContent = `${last_season.wins} Wins`
+                } else {
+                    document.querySelector('.overlay-background').style.backgroundImage = ``
+                    document.querySelector('.rank-user').src = "https://media.valorant-api.com/competitivetiers/03621f52-342b-cf4e-4f86-9350a49c6d04/0/smallicon.png"
+                    document.querySelector('.rank-user').alt = "UNRANKED"
+                    document.querySelector('.rank-name span').textContent = "UNRANKED"
+                    document.querySelector('.stats p:nth-of-type(1)').textContent = `${infosPlayerData.account_level} Lvl`
+                    document.querySelector('.stats p:nth-of-type(2)').textContent = `N/A Elo`
+                    document.querySelector('.stats p:nth-of-type(3)').textContent = `N/A Wins`
+                }
             } catch (error) {
                 console.error(error)
             }
