@@ -219,6 +219,7 @@ router.get("/", async function (req, res, next) {
   res.render("index", {
     title: "Valomy",
     subjectPlayer: subjectPlayer,
+    regionPlayer: settings.region,
   });
 });
 
