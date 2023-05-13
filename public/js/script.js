@@ -8,5 +8,4 @@ setInterval(function () {
     overlay[0].classList.remove("slide-out");
     overlay[0].classList.add("slide-in");
   }
-  console.log(overlay[0].classList);
 }, 180000);
