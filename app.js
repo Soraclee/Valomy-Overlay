@@ -13,5 +13,5 @@ app.set("view engine", "pug");
 app.use("/", indexRouter);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Listening on port ${port}`);
 });

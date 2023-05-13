@@ -92,7 +92,7 @@ async function websocketConnect() {
       });
 
     if (presence instanceof Error) {
-      console.log("Une requête à Valorant a généré une erreur.");
+      console.log("Valorant is not launched");
       ws.close();
       return;
     }
@@ -191,146 +191,43 @@ function sleep(ms) {
   });
 }
 
-async function getNamebySubject(tokens) {
-  var playerid = await axios
-    .put(
-      `https://pd.${settings.region}.a.pvp.net/name-service/v2/players`,
-      [tokens.data.subject],
-      {
-        headers: {
-          Authorization: "Bearer " + tokens.data.accessToken,
-          "X-Riot-Entitlements-JWT": tokens.data.token,
-          "X-Riot-ClientVersion": "release-03.00-shipping-22-574489",
-          "X-Riot-ClientPlatform":
-            "ew0KCSJwbGF0Zm9ybVR5cGUiOiAiUEMiLA0KCSJwbGF0Zm9ybU9TIjogIldpbmRvd3MiLA0KCSJwbGF0Zm9ybU9TVmVyc2lvbiI6ICIxMC4wLjE5MDQyLjEuMjU2LjY0Yml0IiwNCgkicGxhdGZvcm1DaGlwc2V0IjogIlVua25vd24iDQp9",
-        },
-      }
-    )
-    .catch((error) => {
-      return error;
-    });
-
-  if (playerid.response && playerid.response.status == 400) {
-    tokens = await data();
-    playerid = await axios
-      .put(
-        `https://pd.${settings.region}.a.pvp.net/name-service/v2/players`,
-        [tokens.data.subject],
-        {
-          headers: {
-            Authorization: "Bearer " + tokens.data.accessToken,
-            "X-Riot-Entitlements-JWT": tokens.data.token,
-            "X-Riot-ClientVersion": "release-03.00-shipping-22-574489",
-            "X-Riot-ClientPlatform":
-              "ew0KCSJwbGF0Zm9ybVR5cGUiOiAiUEMiLA0KCSJwbGF0Zm9ybU9TIjogIldpbmRvd3MiLA0KCSJwbGF0Zm9ybU9TVmVyc2lvbiI6ICIxMC4wLjE5MDQyLjEuMjU2LjY0Yml0IiwNCgkicGxhdGZvcm1DaGlwc2V0IjogIlVua25vd24iDQp9",
-          },
-        }
-      )
-      .catch((error) => {
-        return error;
-      });
-  }
-
-  if (playerid.response) return errorhandler(playerid.response.status, res);
-
-  return playerid.data;
-}
-
-async function getMMRbySubject(
-  subject = "dc5abcce-65e3-5841-8cd1-c7a11d3fb205"
-) {
-  let mmrInfo = await axios
-    .get(
-      `https://api.henrikdev.xyz/valorant/v2/by-puuid/mmr/${settings.region}/${subject}`
-    )
-    .catch((error) => {
-      return error;
-    });
-
-  return mmrInfo;
-}
-
 var tokens;
 var cstate;
+var subjectPlayer;
 
 /* GET home page. */
 router.get("/", async function (req, res, next) {
   tokens = tokens == undefined ? await data() : tokens;
-  dataPlayerMMR = await getMMRbySubject();
-  dataPlayerJson = await JSON.parse(JSON.stringify(dataPlayerMMR.data.data));
+  if (tokens != undefined) {
+    subjectPlayer = tokens.data.subject;
+  } else {
+    subjectPlayer = settings.subjectDefault;
+  }
+
+  setInterval(async function () {
+    console.log("Refresh...");
+    try {
+      tokens = await data();
+      subjectPlayer = tokens.data.subject;
+      console.log("Token found");
+    } catch {
+      subjectPlayer = settings.subjectDefault;
+      console.log("Token not found");
+    }
+  }, 10000);
+
   res.render("index", {
     title: "Valomy",
-    dataPlayer: dataPlayerJson,
+    subjectPlayer: subjectPlayer,
   });
 });
 
-io.on("connection", async (socket) => {
-  console.log("Connected");
-  socket.on("disconnect", () => {
-    console.log("Disconnected");
-  });
-  if (wsdata == null) {
-    console.log(
-      "Une requête à Valorant a généré une erreur. Raison: wsdata = null"
-    );
-    io.emit("initialize", { state: "Menu" });
-    console.log("State: Close");
-    return;
-  }
-  var presence = await axios
-    .get(`https://127.0.0.1:${wsdata.port}/chat/v4/presences`, {
-      headers: {
-        Authorization: `Basic ${Buffer.from(
-          `riot:${wsdata.pw}`,
-          "utf8"
-        ).toString("base64")}`,
-        "user-agent": "ShooterGame/21 Windows/10.0.19042.1.768.64bit",
-        "X-Riot-ClientVersion": "release-02.03-shipping-8-521855",
-        "Content-Type": "application/json",
-        "rchat-blocking": "true",
-      },
-      httpsAgent: new https.Agent({
-        rejectUnauthorized: false,
-      }),
-    })
-    .catch((error) => {
-      return error;
-    });
-  if (presence instanceof Error) {
-    console.log(
-      "Une requête à Valorant a généré une erreur. Raison: Presence Error"
-    );
-    io.emit("initialize", { state: "Menu" });
-    console.log("State: Close");
-    return;
-  }
-  try {
-    var f = presence.data.presences.filter(
-      (item) => item.puuid == tokens.data.subject
-    );
-    var d = JSON.parse(
-      Buffer.from(
-        Buffer.from(f[0].private, "base64").toString("utf-8")
-      ).toString("utf-8")
-    );
-    if (d.sessionLoopState == "MENUS") {
-      io.emit("initialize", { state: "Menu", data: d });
-      console.log("State: MENUS");
-    }
-    if (d.sessionLoopState == "PREGAME") {
-      io.emit("initialize", { state: "PreGame", data: d });
-      console.log("State: PREGAME");
-    }
-    if (d.sessionLoopState == "INGAME") {
-      io.emit("initialize", { state: "Ingame", data: d });
-      console.log("State: INGAME");
-    }
-  } catch (e) {
-    console.log("Une requête à Valorant a généré une erreur.");
-    io.emit("update", { state: "Menu" });
-    console.log("State: Close");
-    return;
-  }
+router.get("/getSubjectPlayer", (req, res) => {
+  res.json({ subjectPlayer });
+});
+
+router.get("/settings.json", (req, res) => {
+  res.json(settings);
 });
 
 module.exports = router;

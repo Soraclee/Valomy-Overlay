@@ -1,19 +1,64 @@
 extends layout
 
 block content
-    #{console.log(dataPlayer)}
+    script(src='/js/checkPlayerData.js' defer)
+    script.
+        let subject = !{JSON.stringify(subjectPlayer)};
+        let dataPlayer;
+        let infosPlayerData;
+
+        async function updateSubjectPlayer() {
+            try {
+                const resultSubject = await fetch('/getSubjectPlayer');
+                const newSubject = await resultSubject.json();
+                subject = newSubject
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        setInterval(updateSubjectPlayer, 10000)
+
+        async function updateDisplay() {
+            try {
+                let resultDataPlayer = await searchPlayerbySubject(subject.subjectPlayer || subject)
+                dataPlayer = resultDataPlayer.data
+
+                let nametagPlayer = dataPlayer.name + "#" + dataPlayer.tag
+
+                let resultInfosPlayer = await infosPlayer(nametagPlayer)
+                infosPlayerData = resultInfosPlayer.data
+
+                // Update Display
+
+                let last_season = dataPlayer.by_season[Object.keys(dataPlayer.by_season)[Object.keys(dataPlayer.by_season).length - 1]]
+                
+                document.querySelector('.overlay-background').style.backgroundImage = `url(${infosPlayerData.card.wide})`
+                document.querySelector('.rank-user').src = dataPlayer.current_data.images.small
+                document.querySelector('.rank-user').alt = dataPlayer.current_data.currenttierpatched
+                document.querySelector('.rank-name span').textContent = dataPlayer.current_data.currenttierpatched
+                document.querySelector('.stats p:nth-of-type(1)').textContent = `${infosPlayerData.account_level} Lvl`
+                document.querySelector('.stats p:nth-of-type(2)').textContent = `${dataPlayer.current_data.elo} Elo`
+                document.querySelector('.stats p:nth-of-type(3)').textContent = `${last_season.wins} Wins`
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        updateDisplay();
+        setInterval(function() {
+            updateDisplay();
+        }, 10000)
     div(id="overlay" class="global-overlay slide-out")
         div(class="overlay-background")
         div(class="overlay")
             div(class="head-overlay")
                 div(class="left-overlay")
-                    img(class="rank-user" src="" alt="Radiant")
+                    img(class="rank-user")
                 div(class="right-overlay")
                     div(class="rank-name")
-                        span Radiant
+                        span
                     hr
                     div(class="stats")
-                        p 1.2 KDA
-                        p 175 Wins
-                        p 1910 Elo
-
+                        p
+                        p
+                        p
