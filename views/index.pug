@@ -8,45 +8,53 @@ block content
         let infosPlayerData;
         let region = !{JSON.stringify(regionPlayer)};
         let isPregame = false;
-        let preGameDataFull = null;
+        let pregameInfosPlayer = null;
+        let pregameAgentInfos = null;
 
         async function updateSubjectPlayer() {
             try {
                 const resultSubject = await fetch('/getSubjectPlayer');
                 const newSubject = await resultSubject.json();
-                subject = newSubject
+                subject = newSubject.subjectPlayer
             } catch (error) {
                 console.error(error);
             }
         }
 
         async function getDataPreGame() {
-            try {
-                const resultData = await fetch('/pregame');
-                const preGameData = await resultData.json();
-                //- console.log(preGameData.infosData.AllyTeam.Players)
-                if(preGameData.infosData != null) {
-                    isPregame = true
-                    console.log("pregame launch")
-                    for(p of preGameData.infosData.AllyTeam.Players) {
-                    if(p.Subject == subject) {
-                        return p
+            const resultData = await fetch('/pregame');
+            const preGameData = await resultData.json();
+            if (preGameData.infosData != null) {
+                isPregame = true;
+                console.log("pregame launch");
+                for (let p of preGameData.infosData.AllyTeam.Players) {
+                    if (p.Subject == subject) {
+                        pregameInfosPlayer = p;
+                        if(p.CharacterID != "") {
+                            await getInfoAgent(p.CharacterID)
+                        }
+                        break;
                     }
                 }
-                } else {
-                    console.log("pregame not launch")
-                    isPregame = false
-                }
-                
-            } catch(error) {
-                console.log(error)
+            } else {
+                console.log("pregame not launch");
+                isPregame = false;
+                pregameInfosPlayer = null;
+                pregameAgentInfos = null;
             }
+        }
+
+        async function getInfoAgent(agentId) {
+            let infosAgent = await fetch(`https://valorant-api.com/v1/agents/${agentId}`)
+            let resultAgent = await infosAgent.json()
+
+            pregameAgentInfos = resultAgent.data;
         }
 
         setInterval(updateSubjectPlayer, 10000)
 
         async function updateDisplay() {
-            await getDataPreGame()
+            await getDataPreGame();
             try {
                 let resultDataPlayer = await searchPlayerbySubject(subject.subjectPlayer || subject, region)
                 dataPlayer = resultDataPlayer.data
@@ -81,9 +89,13 @@ block content
                 if(isPregame) {
                     document.querySelector('.pregame_select').classList.add("slide-pregame-out")
                     document.querySelector('.pregame_select').classList.remove("slide-pregame-in")
+                    document.querySelector('.agent-img').src = pregameAgentInfos.displayIcon;
+                    document.querySelector('.agent-name').innerText = pregameAgentInfos.displayName
                 } else {
                     document.querySelector('.pregame_select').classList.add("slide-pregame-in")
                     document.querySelector('.pregame_select').classList.remove("slide-pregame-out")
+                    document.querySelector('.agent-img').src = "";
+                    document.querySelector('.agent-name').innerText = "Loading..."
                 }
             } catch (error) {
                 console.error(error)
@@ -119,5 +131,5 @@ block content
             div(class="top-title")
                 p Select Agent
             div(class="top-pregame")
-                img(class="agent-img" src="https://media.valorant-api.com/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/displayicon.png")
-                p(class="agent-name") Jett
+                img(class="agent-img" src="")
+                p(class="agent-name") Loading...
