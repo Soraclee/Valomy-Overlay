@@ -9,15 +9,15 @@
 **Steps to set up the overlay on your stream :**
 
 - You must first download the project.
-  <img alt="Download Project" src="https://i.ibb.co/v30PX60/image.png" width="100%" style="border-radius: 5px">
+  <img alt="Download Project" src="https://i.ibb.co/0BqgJdr/image.png" width="100%" style="border-radius: 5px">
 
-- You need to extract the <code>zip/rar</code> file
+- You need to extract the <code>zip/rar</code> file.
 
 - You must install Node.js (If Node.js is already installed you can skip the installation) :
 
   - A Node.js installation file is available with the name : <code>node-v18.16.0-64.msi</code>
 
-- Once installed, you must install the project packages with the <code>npm install</code> command directly in the project folder or you can run the <code>install.cmd</code> file to install the project packages
+- Once installed, you must install the project packages with the <code>npm install</code> command directly in the project folder or you can run the <code>install.cmd</code> file to install the project packages.
   <img src="https://i.ibb.co/HDYgmhK/image.png" alt="npm install" width="100%" style="border-radius: 5px" />
   OR
   <img src="https://i.ibb.co/tYH7gfQ/image.png" alt="" width="100%" style="border-radius: 5px"  />
