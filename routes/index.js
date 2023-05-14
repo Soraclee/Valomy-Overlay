@@ -191,6 +191,52 @@ function sleep(ms) {
   });
 }
 
+async function checkPreGame(subject) {
+  try {
+    let matchId = await axios
+      .get(
+        `https://glz-${settings.region}-1.${settings.region}.a.pvp.net/pregame/v1/players/${subject}`,
+        {
+          headers: {
+            Authorization: "Bearer " + tokens.data.accessToken,
+            "X-Riot-Entitlements-JWT": tokens.data.token,
+            "X-Riot-ClientVersion": "release-03.00-shipping-22-574489",
+            "X-Riot-ClientPlatform":
+              "ew0KCSJwbGF0Zm9ybVR5cGUiOiAiUEMiLA0KCSJwbGF0Zm9ybU9TIjogIldpbmRvd3MiLA0KCSJwbGF0Zm9ybU9TVmVyc2lvbiI6ICIxMC4wLjE5MDQyLjEuMjU2LjY0Yml0IiwNCgkicGxhdGZvcm1DaGlwc2V0IjogIlVua25vd24iDQp9",
+          },
+        }
+      )
+      .catch((error) => {
+        // console.log(error);
+      });
+
+    if (matchId) {
+      let preGameData = await axios
+        .get(
+          `https://glz-${settings.region}-1.eu.a.pvp.net/pregame/v1/matches/${matchId.data.MatchID}`,
+          {
+            headers: {
+              Authorization: "Bearer " + tokens.data.accessToken,
+              "X-Riot-Entitlements-JWT": tokens.data.token,
+              "X-Riot-ClientVersion": "release-03.00-shipping-22-574489",
+              "X-Riot-ClientPlatform":
+                "ew0KCSJwbGF0Zm9ybVR5cGUiOiAiUEMiLA0KCSJwbGF0Zm9ybU9TIjogIldpbmRvd3MiLA0KCSJwbGF0Zm9ybU9TVmVyc2lvbiI6ICIxMC4wLjE5MDQyLjEuMjU2LjY0Yml0IiwNCgkicGxhdGZvcm1DaGlwc2V0IjogIlVua25vd24iDQp9",
+            },
+          }
+        )
+        .catch((error) => {
+          // console.log(error);
+        });
+
+      return preGameData;
+    }
+
+    return { data: null };
+  } catch (e) {
+    // console.log(e);
+  }
+}
+
 var tokens;
 var cstate;
 var subjectPlayer;
@@ -209,10 +255,8 @@ router.get("/", async function (req, res, next) {
     try {
       tokens = await data();
       subjectPlayer = tokens.data.subject;
-      console.log("Token found");
     } catch {
       subjectPlayer = settings.subjectDefault;
-      console.log("Token not found");
     }
   }, 10000);
 
@@ -225,6 +269,12 @@ router.get("/", async function (req, res, next) {
 
 router.get("/getSubjectPlayer", (req, res) => {
   res.json({ subjectPlayer });
+});
+
+router.get("/pregame", async (req, res) => {
+  infos = await checkPreGame(tokens.data.subject);
+  infosData = infos.data;
+  res.json({ infosData });
 });
 
 router.get("/settings.json", (req, res) => {

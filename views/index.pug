@@ -7,6 +7,8 @@ block content
         let dataPlayer;
         let infosPlayerData;
         let region = !{JSON.stringify(regionPlayer)};
+        let isPregame = false;
+        let preGameDataFull = null;
 
         async function updateSubjectPlayer() {
             try {
@@ -18,9 +20,33 @@ block content
             }
         }
 
+        async function getDataPreGame() {
+            try {
+                const resultData = await fetch('/pregame');
+                const preGameData = await resultData.json();
+                //- console.log(preGameData.infosData.AllyTeam.Players)
+                if(preGameData.infosData != null) {
+                    isPregame = true
+                    console.log("pregame launch")
+                    for(p of preGameData.infosData.AllyTeam.Players) {
+                    if(p.Subject == subject) {
+                        return p
+                    }
+                }
+                } else {
+                    console.log("pregame not launch")
+                    isPregame = false
+                }
+                
+            } catch(error) {
+                console.log(error)
+            }
+        }
+
         setInterval(updateSubjectPlayer, 10000)
 
         async function updateDisplay() {
+            await getDataPreGame()
             try {
                 let resultDataPlayer = await searchPlayerbySubject(subject.subjectPlayer || subject, region)
                 dataPlayer = resultDataPlayer.data
@@ -51,14 +77,29 @@ block content
                     document.querySelector('.stats p:nth-of-type(2)').textContent = `N/A Elo`
                     document.querySelector('.stats p:nth-of-type(3)').textContent = `N/A Wins`
                 }
+
+                if(isPregame) {
+                    document.querySelector('.pregame_select').classList.add("slide-pregame-out")
+                    document.querySelector('.pregame_select').classList.remove("slide-pregame-in")
+                } else {
+                    document.querySelector('.pregame_select').classList.add("slide-pregame-in")
+                    document.querySelector('.pregame_select').classList.remove("slide-pregame-out")
+                }
             } catch (error) {
                 console.error(error)
             }
         }
         updateDisplay();
+        getDataPreGame();
+        setInterval(function() {
+            getDataPreGame()
+        },5000);
         setInterval(function() {
             updateDisplay();
         }, 10000)
+
+
+
     div(id="overlay" class="global-overlay slide-out")
         div(class="overlay-background")
         div(class="overlay")
@@ -73,3 +114,10 @@ block content
                         p
                         p
                         p
+    div(class="pregame_select slide-pregame-out")
+        div(class="pregame")
+            div(class="top-title")
+                p Select Agent
+            div(class="top-pregame")
+                img(class="agent-img" src="https://media.valorant-api.com/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/displayicon.png")
+                p(class="agent-name") Jett
