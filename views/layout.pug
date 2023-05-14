@@ -5,6 +5,8 @@ html
       title= title
       style
         include ../public/css/style.css
+      script. 
+        let settingsvar = !{JSON.stringify(settings)};
       script(src='/js/script.js' defer)
       script(src='/js/checkPlayerData.js')
     body

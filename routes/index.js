@@ -264,6 +264,7 @@ router.get("/", async function (req, res, next) {
     title: "Valomy",
     subjectPlayer: subjectPlayer,
     regionPlayer: settings.region,
+    settings: settings,
   });
 });
 
