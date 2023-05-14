@@ -6,6 +6,10 @@
 
 **Valomy** est un overlay de stream pour Valorant, il vous montre automatiquement grâce à l'api de Valorant votre rang et les statistiques du compte connecté sur Valorant.
 
+**Vidéo explicatives :**
+
+<iframe src="https://www.youtube-nocookie.com/embed/HotLe4x-S9U" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+
 **Étapes de la mise en place de l'overlay sur votre stream :**
 
 - Vous devez d'abord télécharger le projet.
