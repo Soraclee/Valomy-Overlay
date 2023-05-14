@@ -19,7 +19,7 @@
 
 - بمجرد التثبيت ، يجب تثبيت حزم المشروع باستخدام الأمر <code> npm install </code> مباشرة في مجلد المشروع أو يمكنك تشغيل ملف <code> install.cmd </code> لتثبيت حزم المشروع.
   <img src="https://i.ibb.co/HDYgmhK/image.png" alt="npm install" width="100%" style="border-radius: 5px" />
-  OR
+  أو
   <img src="https://i.ibb.co/tYH7gfQ/image.png" alt="install.cmd" width="100%" style="border-radius: 5px"  />
 
 - يجب أن تذهب إلى ملف <code> settings.json </code> لتغيير منطقتك المقابلة لحساب Valorant الخاص بك ، المناطق المتاحة هي التالية:
