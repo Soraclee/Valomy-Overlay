@@ -8,7 +8,7 @@
 
 **Vidéo explicatives :**
 
-[<img src="https://i.ytimg.com/vi/HotLe4x-S9U/maxresdefault.jpg" width="50%">](https://www.youtube.com/watch?v=HotLe4x-S9U "Valomy - Overlay de stream Valorant")
+[<img src="https://i.ibb.co/mHqKm8T/valomy-play.png" width="100%">](https://www.youtube.com/watch?v=HotLe4x-S9U "Valomy - Overlay de stream Valorant")
 
 **Étapes de la mise en place de l'overlay sur votre stream :**
 
