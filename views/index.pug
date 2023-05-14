@@ -35,7 +35,6 @@ block content
                 let last_season = dataPlayer.by_season[Object.keys(dataPlayer.by_season)[Object.keys(dataPlayer.by_season).length - 1]]
 
                 if(dataPlayer.current_data.elo != null) {
-                
                     document.querySelector('.overlay-background').style.backgroundImage = `url(${infosPlayerData.card.wide})`
                     document.querySelector('.rank-user').src = dataPlayer.current_data.images.small
                     document.querySelector('.rank-user').alt = dataPlayer.current_data.currenttierpatched
