@@ -20,7 +20,7 @@
 - Once installed, you must install the project packages with the <code>npm install</code> command directly in the project folder or you can run the <code>install.cmd</code> file to install the project packages.
   <img src="https://i.ibb.co/HDYgmhK/image.png" alt="npm install" width="100%" style="border-radius: 5px" />
   OR
-  <img src="https://i.ibb.co/tYH7gfQ/image.png" alt="" width="100%" style="border-radius: 5px"  />
+  <img src="https://i.ibb.co/tYH7gfQ/image.png" alt="install.cmd" width="100%" style="border-radius: 5px"  />
 
 - You must go to the <code>settings.json</code> file to change your region corresponding to your Valorant account, the available regions are the following:
 
@@ -33,13 +33,13 @@
   | Latin America |    latam    |
   | Brazil        |     br      |
 
-    <img src="https://i.ibb.co/p226tSV/image.png" alt="all regions available" width="100%" style="border-radius: 5px" />
+    <img src="https://i.ibb.co/p226tSV/image.png" alt="All regions available" width="100%" style="border-radius: 5px" />
 
 - You can start the script with the command <code>npm run serve</code> or run the file <code>start.cmd</code>
   <img src="https://i.ibb.co/cTwTsLX/image.png" alt="npm run serve" width="100%" style="border-radius: 5px" />
 
 - You can go to the following address to see if you have access to your overlay : http://localhost:3000
-  <img src="https://i.ibb.co/7KgmsQc/image.png" alt="Page of Localhost:3000" width="100%" style="border-radius: 5px" />
+  <img src="https://i.ibb.co/7KgmsQc/image.png" alt="Page of localhost:3000" width="100%" style="border-radius: 5px" />
 
 - Now we will add the overlay to the stream (Streamlabs, OBS, Twitch Studio etc.)
 

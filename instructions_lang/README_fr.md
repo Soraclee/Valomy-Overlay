@@ -1,4 +1,4 @@
-# Valomy (Valorant Overlay)
+# Valomy (Overlay Valorant)
 
 ![DOWNLOAD](https://img.shields.io/github/downloads/soraclee/valorantoverlay/total?style=for-the-badge)
 ![ISSUES](https://img.shields.io/github/issues/soraclee/valorantoverlay?style=for-the-badge)
