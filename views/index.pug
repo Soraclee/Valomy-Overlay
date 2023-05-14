@@ -91,6 +91,7 @@ block content
                     document.querySelector('.pregame_select').classList.remove("slide-pregame-in")
                     document.querySelector('.agent-img').src = pregameAgentInfos.displayIcon;
                     document.querySelector('.agent-name').innerText = pregameAgentInfos.displayName
+                    document.querySelector('.agent-img').style.backgroundColor = "#" + `${pregameAgentInfos.backgroundGradientColors[0]}`
                 } else {
                     document.querySelector('.pregame_select').classList.add("slide-pregame-in")
                     document.querySelector('.pregame_select').classList.remove("slide-pregame-out")

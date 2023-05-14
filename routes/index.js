@@ -273,6 +273,7 @@ router.get("/getSubjectPlayer", (req, res) => {
 });
 
 router.get("/pregame", async (req, res) => {
+  tokens = tokens == undefined ? await data() : tokens;
   infos = await checkPreGame(tokens.data.subject);
   infosData = infos.data;
   res.json({ infosData });
