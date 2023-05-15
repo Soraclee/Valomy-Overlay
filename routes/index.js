@@ -233,16 +233,11 @@ async function checkPreGame(subject) {
 
     return { data: null };
   } catch (e) {
-    // console.log(e);
+    return { data: null };
   }
 }
 
-var tokens;
-var cstate;
-var subjectPlayer;
-
-/* GET home page. */
-router.get("/", async function (req, res, next) {
+async function checkSubjectPlayer() {
   tokens = tokens == undefined ? await data() : tokens;
   if (tokens != undefined) {
     subjectPlayer = tokens.data.subject;
@@ -254,12 +249,21 @@ router.get("/", async function (req, res, next) {
     console.log("Refresh...");
     try {
       tokens = await data();
-      subjectPlayer = tokens.data.subject;
+      subjectPlayer = { subjectPlayer: tokens.data.subject };
     } catch {
-      subjectPlayer = settings.subjectDefault;
+      subjectPlayer = { subjectPlayer: settings.subjectDefault };
     }
   }, 10000);
+}
 
+var tokens;
+var cstate;
+var subjectPlayer;
+
+checkSubjectPlayer();
+
+/* GET home page. */
+router.get("/", async function (req, res, next) {
   res.render("index", {
     title: "Valomy",
     subjectPlayer: subjectPlayer,
@@ -273,10 +277,21 @@ router.get("/getSubjectPlayer", (req, res) => {
 });
 
 router.get("/pregame", async (req, res) => {
-  tokens = tokens == undefined ? await data() : tokens;
-  infos = await checkPreGame(tokens.data.subject);
-  infosData = infos.data;
-  res.json({ infosData });
+  console.log("Pregame");
+  try {
+    tokens = await data();
+    if (tokens != undefined) {
+      infos = await checkPreGame(tokens.data.subject);
+      infosData = infos.data;
+    } else {
+      infos = await checkPreGame(settings.subjectDefault);
+      infosData = infos.data;
+    }
+
+    res.json({ infosData });
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 router.get("/settings.json", (req, res) => {

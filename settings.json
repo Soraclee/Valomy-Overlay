@@ -2,8 +2,8 @@
     "region": "eu",
     "subjectDefault": "dc5abcce-65e3-5841-8cd1-c7a11d3fb205",
     "overlayOut": {
-        "_comment": "Display only the rank from how many ms",
+        "_comment": "Display only the rank from how many seconds",
         "available": true,
-        "time": 180000
+        "time": 3
     }
 }
