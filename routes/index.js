@@ -6,7 +6,8 @@ var router = express.Router();
 const https = require("https");
 var path = require("path");
 const fs = require("fs");
-const axios = require("axios");
+// Fix pkg problem with axios
+const axios = require("../node_modules/axios/dist/node/axios.cjs");
 const io = require("socket.io")(5001, {
   cors: {
     origin: "*",
