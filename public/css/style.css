@@ -204,7 +204,8 @@ hr {
   right: 0px;
 }
 
-.pregame .agent-img {
+.pregame .agent-img,
+.pregame-agent-infos .img-agent-role {
   height: 50px;
   width: 50px;
   display: flex;
@@ -237,4 +238,41 @@ hr {
 
 .pregame .top-title p {
   margin: 0;
+}
+
+.pregame-agent-infos {
+  background-color: rgb(66, 117, 253, 0.7);
+  height: 300px;
+  width: 180px;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+  float: right;
+  right: 0px;
+  top: 80px;
+}
+
+.agent-infos .agent-description {
+  color: #fff;
+  margin: 0;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.agent-role {
+  justify-content: center;
+  display: grid;
+}
+
+.agent-role .img-agent-role {
+  margin: auto;
+  background-color: transparent;
+}
+
+.agent-role .agent-role-name {
+  margin: 0;
+  margin-top: 5px;
+  text-align: center;
+  color: #fff;
+  font-size: 1.1em;
 }

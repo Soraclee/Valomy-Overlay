@@ -10,6 +10,8 @@ block content
         let isPregame = false;
         let pregameInfosPlayer = null;
         let pregameAgentInfos = null;
+        let settings = !{JSON.stringify(settings)};
+        let agentSelected = false;
 
         async function updateSubjectPlayer() {
             try {
@@ -32,6 +34,7 @@ block content
                         pregameInfosPlayer = p;
                         if(p.CharacterID != "") {
                             await getInfoAgent(p.CharacterID)
+                            agentSelected = true;
                         }
                         break;
                     }
@@ -45,7 +48,7 @@ block content
         }
 
         async function getInfoAgent(agentId) {
-            let infosAgent = await fetch(`https://valorant-api.com/v1/agents/${agentId}`)
+            let infosAgent = await fetch(`https://valorant-api.com/v1/agents/${agentId}?language=${settings.lang}`)
             let resultAgent = await infosAgent.json()
 
             pregameAgentInfos = resultAgent.data;
@@ -93,6 +96,16 @@ block content
                         document.querySelector('.agent-img').src = pregameAgentInfos.displayIcon;
                         document.querySelector('.agent-name').innerText = pregameAgentInfos.displayName
                         document.querySelector('.agent-img').style.backgroundColor = "#" + `${pregameAgentInfos.backgroundGradientColors[0]}`
+                        document.querySelector('.agent-description').innerText = `${pregameAgentInfos.description}`;
+                        document.querySelector('.agent-role-name').innerText = `${pregameAgentInfos.role.displayName}`;
+                        document.querySelector('.img-agent-role').src = pregameAgentInfos.role.displayIcon;
+                        if(agentSelected) {
+                            document.querySelector('.pregame-agent-infos').classList.add("slide-pregame-out")
+                            document.querySelector('.pregame-agent-infos').classList.remove("slide-pregame-in")
+                        } else {
+                            document.querySelector('.pregame-agent-infos').classList.add("slide-pregame-in")
+                            document.querySelector('.pregame-agent-infos').classList.remove("slide-pregame-out")
+                        }
                     }
                 } else {
                     document.querySelector('.pregame_select').classList.add("slide-pregame-in")
@@ -137,3 +150,10 @@ block content
             div(class="top-pregame")
                 img(class="agent-img" src="https://i.ibb.co/qgYnXpq/Empty.png")
                 p(class="agent-name") Loading...
+        div(class="pregame-agent-infos slide-pregame-in")
+            div(class="agent-infos")
+                div(class="agent-role")
+                    img(class="img-agent-role" src="https://i.ibb.co/qgYnXpq/Empty.png" alt="Role")
+                    p(class="agent-role-name") Loading
+                div(class="agent-description")
+                    p Loading

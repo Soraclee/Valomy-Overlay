@@ -1,5 +1,5 @@
 {
-  "name": "Valomy-Overlay",
+  "name": "valomy-overlay",
   "main": "app.js",
   "bin": "app.js",
   "dependencies": {
@@ -15,7 +15,10 @@
     "build": "pkg package.json"
   },
   "pkg": {
-    "assets": ["./public/**/*", "./views/*.pug"],
+    "assets": [
+      "./public/**/*",
+      "./views/*.pug"
+    ],
     "outputPath": "dist"
   }
 }
