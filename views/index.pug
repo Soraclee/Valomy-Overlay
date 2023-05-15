@@ -7,20 +7,57 @@ block content
         let dataPlayer;
         let infosPlayerData;
         let region = !{JSON.stringify(regionPlayer)};
+        let isPregame = false;
+        let pregameInfosPlayer = null;
+        let pregameAgentInfos = null;
+        let settings = !{JSON.stringify(settings)};
+        let agentSelected = false;
 
         async function updateSubjectPlayer() {
             try {
                 const resultSubject = await fetch('/getSubjectPlayer');
                 const newSubject = await resultSubject.json();
-                subject = newSubject
+                subject = newSubject.subjectPlayer
             } catch (error) {
                 console.error(error);
             }
         }
 
+        async function getDataPreGame() {
+            const resultData = await fetch('/pregame');
+            const preGameData = await resultData.json();
+            if (preGameData.infosData != null) {
+                isPregame = true;
+                console.log("pregame launch");
+                for (let p of preGameData.infosData.AllyTeam.Players) {
+                    if (p.Subject == subject.subjectPlayer) {
+                        pregameInfosPlayer = p;
+                        if(p.CharacterID != "") {
+                            await getInfoAgent(p.CharacterID)
+                            agentSelected = true;
+                        }
+                        break;
+                    }
+                }
+            } else {
+                console.log("pregame not launch");
+                isPregame = false;
+                pregameInfosPlayer = null;
+                pregameAgentInfos = null;
+            }
+        }
+
+        async function getInfoAgent(agentId) {
+            let infosAgent = await fetch(`https://valorant-api.com/v1/agents/${agentId}?language=${settings.lang}`)
+            let resultAgent = await infosAgent.json()
+
+            pregameAgentInfos = resultAgent.data;
+        }
+
         setInterval(updateSubjectPlayer, 10000)
 
         async function updateDisplay() {
+            await getDataPreGame();
             try {
                 let resultDataPlayer = await searchPlayerbySubject(subject.subjectPlayer || subject, region)
                 dataPlayer = resultDataPlayer.data
@@ -51,14 +88,47 @@ block content
                     document.querySelector('.stats p:nth-of-type(2)').textContent = `N/A Elo`
                     document.querySelector('.stats p:nth-of-type(3)').textContent = `N/A Wins`
                 }
+
+                if(isPregame) {
+                    document.querySelector('.pregame_select').classList.add("slide-pregame-out")
+                    document.querySelector('.pregame_select').classList.remove("slide-pregame-in")
+                    if(pregameAgentInfos) {
+                        document.querySelector('.agent-img').src = pregameAgentInfos.displayIcon;
+                        document.querySelector('.agent-name').innerText = pregameAgentInfos.displayName
+                        document.querySelector('.agent-img').style.backgroundColor = "#" + `${pregameAgentInfos.backgroundGradientColors[0]}`
+                        document.querySelector('.agent-description').innerText = `${pregameAgentInfos.description}`;
+                        document.querySelector('.agent-role-name').innerText = `${pregameAgentInfos.role.displayName}`;
+                        document.querySelector('.img-agent-role').src = pregameAgentInfos.role.displayIcon;
+                        if(agentSelected) {
+                            document.querySelector('.pregame-agent-infos').classList.add("slide-pregame-out")
+                            document.querySelector('.pregame-agent-infos').classList.remove("slide-pregame-in")
+                        } else {
+                            document.querySelector('.pregame-agent-infos').classList.add("slide-pregame-in")
+                            document.querySelector('.pregame-agent-infos').classList.remove("slide-pregame-out")
+                        }
+                    }
+                } else {
+                    document.querySelector('.pregame_select').classList.add("slide-pregame-in")
+                    document.querySelector('.pregame_select').classList.remove("slide-pregame-out")
+                    document.querySelector('.agent-img').src = "https://i.ibb.co/qgYnXpq/Empty.png";
+                    document.querySelector('.agent-name').innerText = "Loading..."
+                }
             } catch (error) {
                 console.error(error)
             }
         }
+
+        getDataPreGame();
         updateDisplay();
         setInterval(function() {
             updateDisplay();
         }, 10000)
+        setInterval(function() {
+            getDataPreGame()
+        }, 5000);
+
+
+
     div(id="overlay" class="global-overlay slide-out")
         div(class="overlay-background")
         div(class="overlay")
@@ -73,3 +143,17 @@ block content
                         p
                         p
                         p
+    div(class="pregame_select slide-pregame-out")
+        div(class="pregame")
+            div(class="top-title")
+                p Select Agent
+            div(class="top-pregame")
+                img(class="agent-img" src="https://i.ibb.co/qgYnXpq/Empty.png")
+                p(class="agent-name") Loading...
+        div(class="pregame-agent-infos slide-pregame-in")
+            div(class="agent-infos")
+                div(class="agent-role")
+                    img(class="img-agent-role" src="https://i.ibb.co/qgYnXpq/Empty.png" alt="Role")
+                    p(class="agent-role-name") Loading
+                div(class="agent-description")
+                    p Loading
