@@ -7,6 +7,14 @@
   font-weight: 400;
 }
 
+@font-face {
+  font-family: valorant;
+  font-style: normal;
+  font-weight: 400;
+  src: local("VALORANT"),
+    url("https://fonts.cdnfonts.com/s/37505/Valorant Font.woff") format("woff");
+}
+
 body {
   background-color: transparent;
   font-family: euclid circular a;
@@ -94,6 +102,16 @@ hr {
   -webkit-animation: slide-out 0.5s forwards;
 }
 
+.slide-pregame-out {
+  animation: slide-pregame-out 0.5s forwards;
+  -webkit-animation: slide-pregame-out 0.5s forwards;
+}
+
+.slide-pregame-in {
+  animation: slide-pregame-in 0.5s forwards;
+  -webkit-animation: slide-pregame-in 0.5s forwards;
+}
+
 @keyframes slide-in {
   0% {
     transform: translateX(-75%);
@@ -128,4 +146,133 @@ hr {
   100% {
     -webkit-transform: translateX(-75%);
   }
+}
+
+@keyframes slide-pregame-out {
+  0% {
+    transform: translateX(115%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes slide-pregame-out {
+  0% {
+    -webkit-transform: translateX(115%);
+  }
+
+  100% {
+    -webkit-transform: translateX(0%);
+  }
+}
+
+@keyframes slide-pregame-in {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(115%);
+  }
+}
+
+@-webkit-keyframes slide-pregame-in {
+  100% {
+    -webkit-transform: translateX(115%);
+  }
+}
+
+.pregame_select {
+  position: absolute;
+  float: right;
+  right: 12px;
+  top: 125px;
+  height: 70px;
+  width: 200px;
+}
+
+.pregame {
+  background-color: rgb(66, 117, 253, 0.7);
+  height: 50px;
+  width: 180px;
+  border-radius: 0px 5px 5px 5px;
+  padding: 10px;
+  position: absolute;
+  float: right;
+  right: 0px;
+}
+
+.pregame .agent-img,
+.pregame-agent-infos .img-agent-role {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  border-radius: 50px;
+  background-color: #90e3fdff;
+}
+
+.pregame .agent-name {
+  font-family: "VALORANT";
+  text-align: center;
+  color: #fff;
+  font-size: 1.2em;
+  margin-left: 10px;
+}
+
+.pregame .top-pregame {
+  display: flex;
+}
+
+.pregame .top-title {
+  position: absolute;
+  top: -30px;
+  background-color: rgba(66, 117, 253, 0.7);
+  left: 0px;
+  padding: 0px;
+  padding: 5px;
+  color: #fff;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.pregame .top-title p {
+  margin: 0;
+}
+
+.pregame-agent-infos {
+  background-color: rgb(66, 117, 253, 0.7);
+  height: 300px;
+  width: 180px;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+  float: right;
+  right: 0px;
+  top: 80px;
+}
+
+.agent-infos .agent-description {
+  color: #fff;
+  margin: 0;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.agent-role {
+  justify-content: center;
+  display: grid;
+}
+
+.agent-role .img-agent-role {
+  margin: auto;
+  background-color: transparent;
+}
+
+.agent-role .agent-role-name {
+  margin: 0;
+  margin-top: 5px;
+  text-align: center;
+  color: #fff;
+  font-size: 1.1em;
 }
