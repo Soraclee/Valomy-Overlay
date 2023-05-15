@@ -12,7 +12,7 @@
   },
   "scripts": {
     "serve": "nodemon app.js",
-    "build": "pkg package.json"
+    "build": "npx pkg package.json"
   },
   "pkg": {
     "assets": [
