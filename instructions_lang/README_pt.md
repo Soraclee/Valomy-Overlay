@@ -8,21 +8,16 @@ O **Valomy** é um fluxo de sobreposição para o Valorant, que mostra automatic
 
 **Passos para configurar a sobreposição no seu fluxo :**
 
-- Em primeiro lugar, é necessário descarregar o projecto.
-  <img alt="Descarregar projecto" src="https://i.ibb.co/0BqgJdr/image.png" width="100%" style="border-radius: 5px">
+- Em primeiro lugar, é necessário descarregar a versão mais recente da sobreposição, seleccionando a sua plataforma.
+  <img alt="Descarregar o projecto" src="https://i.ibb.co/MPgFkJ8/image.png" width="100%" style="border-radius: 5px">
+  <img alt="Diferentes plataformas disponíveis" src="https://i.ibb.co/xJMf0gY/image.png" width="100%" style="border-radius: 5px">
 
 - É necessário extrair o ficheiro <code>zip/rar</code>.
 
-- É necessário instalar o Node.js (se o Node.js já estiver instalado, pode saltar a instalação) :
+- Coloca-se o ficheiro executável e o ficheiro <code>settings.json</code> na mesma pasta
+  <img src="https://i.ibb.co/vhwkTg6/image.png" alt="O ficheiro executável e o ficheiro settings.json na mesma pasta" />
 
-  - Está disponível um ficheiro de instalação do Node.js com o nome : <code>node-v18.16.0-64.msi</code>
-
-- Uma vez instalado, você deve instalar os pacotes do projeto com o comando <code>npm install</code> diretamente na pasta do projeto ou pode executar o arquivo <code>install.cmd</code> para instalar os pacotes do projeto.
-  <img src="https://i.ibb.co/HDYgmhK/image.png" alt="npm install" width="100%" style="border-radius: 5px" />
-  OR
-  <img src="https://i.ibb.co/tYH7gfQ/image.png" alt="install.cmd" width="100%" style="border-radius: 5px"  />
-
-- Deve ir ao ficheiro <code>settings.json</code> para alterar a sua região correspondente à sua conta Valorant, as regiões disponíveis são as seguintes:
+- Uma vez instalado, é necessário ir ao ficheiro <code>settings.json</code> para alterar a região correspondente à sua conta Valorant e pode alterar o idioma para apresentar as informações de sobreposição e, em seguida, guardar. As regiões e os idiomas disponíveis são os seguintes:
 
   | Nome da região   | Código da região |
   | ---------------- | :--------------: |
@@ -33,12 +28,34 @@ O **Valomy** é um fluxo de sobreposição para o Valorant, que mostra automatic
   | América Latina   |      latam       |
   | Brasil           |        br        |
 
-    <img src="https://i.ibb.co/p226tSV/image.png" alt="Todas as regiões disponíveis" width="100%" style="border-radius: 5px" />
+  | Nome da língua          | Código da língua |
+  | ----------------------- | :--------------: |
+  | Árabe (U.A.E.)          |      ar-AE       |
+  | Alemão                  |      de-DE       |
+  | Inglês (Estados Unidos) |      en-US       |
+  | Espanhol                |      es-ES       |
+  | Espanhol (México)       |      es-MX       |
+  | Francês                 |      en-GB       |
+  | Indonésio               |      id-id       |
+  | Italiano                |      it IT       |
+  | Japonês                 |      ja-JP       |
+  | Coreano                 |      ko-KR       |
+  | Polaco                  |      pl-PL       |
+  | Português (Brasil)      |      pt-BR       |
+  | Russo                   |      ru-RU       |
+  | Tailandês               |      th-TH       |
+  | Turco                   |      tr-TR       |
+  | Vietnamita              |      vi-VN       |
+  | Chinês (simplificado)   |      zh-CN       |
+  | Chinês (Taiwan)         |      zh-TW       |
 
-- Pode iniciar o script com o comando <code>npm run serve</code> ou executar o ficheiro <code>start.cmd</code>
-  <img src="https://i.ibb.co/cTwTsLX/image.png" alt="npm run serve" width="100%" style="border-radius: 5px" />
+<code>settings.json</code>
+<img src="https://i.ibb.co/MGLJ5Jz/image.png" alt="settings.json" width="100%" style="border-radius: 5px" />
 
-- Pode ir ao seguinte endereço para ver se tem acesso à sua sobreposição: http://localhost:3000
+- Pode executar o executável na pasta.
+  <img src="https://i.ibb.co/Zh68gh3/image.png" alt="Iniciar o executável" width="100%" style="border-radius: 5px" />
+
+- Podes ir ao seguinte endereço para ver se tens acesso ao teu overlay: http://localhost:3000 (Tens de correr antes do Valorant ou do Riot Client)
   <img src="https://i.ibb.co/7KgmsQc/image.png" alt="Página de localhost:3000" width="100%" style="border-radius: 5px" />
 
 - Agora vamos adicionar a sobreposição ao fluxo (Streamlabs, OBS, Twitch Studio, etc.)
