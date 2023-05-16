@@ -8,21 +8,16 @@
 
 **Pasos para configurar la superposición en su flujo :**
 
-- Primero debe descargar el proyecto.
-  <img alt="Descargar proyecto" src="https://i.ibb.co/0BqgJdr/image.png" width="100%" style="border-radius: 5px">
+- Primero debe descargar la última versión de la superposición eligiendo su plataforma.
+  <img alt="Descargar el proyecto" src="https://i.ibb.co/MPgFkJ8/image.png" width="100%" style="border-radius: 5px">
+  <img alt="Diferentes plataformas disponibles" src="https://i.ibb.co/xJMf0gY/image.png" width="100%" style="border-radius: 5px">
 
 - Tienes que extraer el archivo <code>zip/rar</code>.
 
-- Debe instalar Node.js (Si Node.js ya está instalado puede omitir la instalación) :
+- Pones el archivo ejecutable y el archivo <code>settings.json</code> en la misma carpeta
+  <img src="https://i.ibb.co/vhwkTg6/image.png" alt="El archivo ejecutable y el settings.json en la misma carpeta" />
 
-  - Existe un archivo de instalación de Node.js con el nombre : <code>node-v18.16.0-64.msi</code>
-
-- Una vez instalado, debe instalar los paquetes del proyecto con el comando <code>npm install</code> directamente en la carpeta del proyecto o puede ejecutar el archivo <code>install.cmd</code> para instalar los paquetes del proyecto.
-  <img src="https://i.ibb.co/HDYgmhK/image.png" alt="npm install" width="100%" style="border-radius: 5px" />
-  O
-  <img src="https://i.ibb.co/tYH7gfQ/image.png" alt="install.cmd" width="100%" style="border-radius: 5px"  />
-
-- Debes ir al archivo <code>settings.json</code> para cambiar tu región correspondiente a tu cuenta Valorant, las regiones disponibles son las siguientes:
+- Una vez instalado, tienes que ir al archivo <code>settings.json</code> para cambiar tu región correspondiente a tu cuenta Valorant y puedes cambiar el idioma para mostrar la información superpuesta y luego guardar. Las regiones e idiomas disponibles son los siguientes:
 
   | Nombre de la región | Código de región |
   | ------------------- | :--------------: |
@@ -33,13 +28,35 @@
   | América Latina      |      latam       |
   | Brasil              |        br        |
 
-    <img src="https://i.ibb.co/p226tSV/image.png" alt="todas las regiones disponibles" width="100%" style="border-radius: 5px" />
+| Nombre del idioma       | Código de idioma |
+| ----------------------- | :--------------: |
+| Árabe (EAU)             |      ar-AE       |
+| Alemán                  |      de-DE       |
+| Inglés (Estados Unidos) |      es-US       |
+| Español                 |      es-ES       |
+| Español (México)        |      es-MX       |
+| Francés                 |      es-ES       |
+| Indonesio               |      id-id       |
+| Italiano                |      es TI       |
+| Japonés                 |      ja-JP       |
+| Coreano                 |      ko-KR       |
+| Polaco                  |      pl-PL       |
+| Portugués (Brasil)      |      pt-BR       |
+| Ruso                    |      ru-RU       |
+| Tailandés               |      th-TH       |
+| Turco                   |      tr-TR       |
+| Vietnamita              |      vi-VN       |
+| Chino (simplificado)    |      zh-CN       |
+| Chino (Taiwán)          |      zh-TW       |
 
-- Puede iniciar el script con el comando <code>npm run serve</code> o ejecutar el archivo <code>start.cmd</code>
-  <img src="https://i.ibb.co/cTwTsLX/image.png" alt="npm run serve" width="100%" style="border-radius: 5px" />
+<code>settings.json</code>
+<img src="https://i.ibb.co/MGLJ5Jz/image.png" alt="settings.json" width="100%" style="border-radius: 5px" />
 
-- Puede ir a la siguiente dirección para ver si tiene acceso a su superposición : http://localhost:3000
-  <img src="https://i.ibb.co/7KgmsQc/image.png" alt="Página de Localhost:3000" width="100%" style="border-radius: 5px" />
+- Puede ejecutar el ejecutable de la carpeta.
+  <img src="https://i.ibb.co/Zh68gh3/image.png" alt="Iniciar el ejecutable" width="100%" style="border-radius: 5px" />
+
+- Puedes ir a la siguiente dirección para ver si tienes acceso a tu overlay: http://localhost:3000 (Debes ejecutarlo antes que Valorant o el Riot Client)
+  <img src="https://i.ibb.co/7KgmsQc/image.png" alt="Página de localhost:3000" width="100%" style="border-radius: 5px" />
 
 - Ahora vamos a añadir la superposición a la corriente (Streamlabs, OBS, Twitch Studio, etc.)
 

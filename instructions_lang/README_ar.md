@@ -8,38 +8,55 @@
 
 **خطوات إعداد التراكب على البث الخاص بك:**
 
-- يجب عليك أولا تحميل المشروع.
-  <img alt="تحميل المشروع" src="https://i.ibb.co/0BqgJdr/image.png" width="100%" style="border-radius: 5px">
+- يجب عليك أولاً تنزيل أحدث إصدار من التراكب عن طريق اختيار النظام الأساسي الخاص بك.
+  <img alt="قم بتنزيل المشروع" src="https://i.ibb.co/MPgFkJ8/image.png" width="100%" style="border-radius: 5px">
+  <img alt="منصات مختلفة متاحة" src="https://i.ibb.co/xJMf0gY/image.png" width="100%" style="border-radius: 5px">
 
-- تحتاج إلى استخراج ملف <code> zip / rar </code>
+- تحتاج إلى استخراج ملف <code> zip / rar </code>.
 
-- يجب عليك تثبيت Node.js (إذا كان Node.js مثبتًا بالفعل ، يمكنك تخطي التثبيت):
+- يمكنك وضع الملف القابل للتنفيذ وملف <code> settings.json </code> في نفس المجلد
+  <img src="https://i.ibb.co/vhwkTg6/image.png" alt="الملف التنفيذي و settings.json في نفس المجلد" />
 
-  - يتوفر ملف تثبيت Node.js بالاسم: <code>node-v18.16.0-64.msi</code>
+- بمجرد التثبيت ، ستحتاج إلى الانتقال إلى ملف <code> settings.json </code> لتغيير منطقتك المقابلة لحساب Valorant الخاص بك ويمكنك تغيير اللغة لعرض معلومات التراكب ثم الحفظ. المناطق واللغات المتوفرة هي كما يلي:
 
-- بمجرد التثبيت ، يجب تثبيت حزم المشروع باستخدام الأمر <code> npm install </code> مباشرة في مجلد المشروع أو يمكنك تشغيل ملف <code> install.cmd </code> لتثبيت حزم المشروع.
-  <img src="https://i.ibb.co/HDYgmhK/image.png" alt="npm install" width="100%" style="border-radius: 5px" />
-  أو
-  <img src="https://i.ibb.co/tYH7gfQ/image.png" alt="install.cmd" width="100%" style="border-radius: 5px"  />
+| اسم المنطقة         | كود المنطقة |
+| ------------------- | :---------: |
+| أوروبا              |     eu      |
+| آسيا والمحيط الهادئ |     ap      |
+| أمريكا الشمالية     |     na      |
+| كوريا الجنوبية      |     kr      |
+| أمريكا اللاتينية    |    latam    |
+| البرازيل            |     br      |
 
-- يجب أن تذهب إلى ملف <code> settings.json </code> لتغيير منطقتك المقابلة لحساب Valorant الخاص بك ، المناطق المتاحة هي التالية:
+| اسم اللغة                          | كود اللغة |
+| ---------------------------------- | :-------: |
+| العربية (الإمارات العربية المتحدة) |   ar-AE   |
+| الألمانية                          |   de-DE   |
+| الإنجليزية (الولايات المتحدة)      |   ar-US   |
+| الإسبانية                          |   es-ES   |
+| الأسبانية (المكسيك)                |   es-MX   |
+| الفرنسية                           |   fr-FR   |
+| الأندونيسية                        |   id-ID   |
+| إيطالي                             |   it-IT   |
+| اليابانية                          |   ja-JP   |
+| كوري                               |   ko-KR   |
+| البولندية                          |   pl-PL   |
+| البرتغالية (البرازيل)              |   pt-BR   |
+| الروسية                            |   ru-RU   |
+| التايلاندية                        |   th-TH   |
+| التركية                            |   tr-TR   |
+| الفيتنامية                         |   vi-VN   |
+| الصينية (المبسطة)                  |   zh-CN   |
+| الصينية (تايوان)                   |   zh-TW   |
 
-  | رمز المنطقة |     اسم المنطقة     |
-  | ----------- | :-----------------: |
-  | eu          |       أوروبا        |
-  | ap          | آسيا والمحيط الهادئ |
-  | na          |   أمريكا الشمالية   |
-  | kr          |   كوريا الجنوبية    |
-  | latam       |  أمريكا اللاتينية   |
-  | br          |      البرازيل       |
+<code>settings.json</code>
+<img src="https://i.ibb.co/MGLJ5Jz/image.png" alt="settings.json" width="100%" style="border-radius: 5px" />
 
-    <img src="https://i.ibb.co/p226tSV/image.png" alt="جميع المناطق متاحة" width="100%" style="border-radius: 5px" />
+- يمكنك تشغيل الملف القابل للتنفيذ في المجلد.
+  <img src="https://i.ibb.co/Zh68gh3/image.png" alt="بدء تشغيل الملف القابل للتنفيذ" width="100%" style="border-radius: 5px" />
 
-- يمكنك بدء البرنامج النصي باستخدام الأمر <code> npm run serve </code> أو تشغيل الملف <code> start.cmd </code>
-  <img src="https://i.ibb.co/cTwTsLX/image.png" alt="npm run serve" width="100%" style="border-radius: 5px" />
-
-- يمكنك الانتقال إلى العنوان التالي لمعرفة ما إذا كان لديك حق الوصول إلى التراكب الخاص بك: http://localhost:3000
-  <img src="https://i.ibb.co/7KgmsQc/image.png" alt="صفحة localhost:3000" width="100%" style="border-radius: 5px" />
+- يمكنك الانتقال إلى العنوان التالي لمعرفة ما إذا كان لديك حق الوصول إلى التراكب الخاص بك: http: // localhost: 3000 (يجب عليك الركض قبل Valorant أو عميل Riot)
+  <img src="https://i.ibb.co/7KgmsQc/image.png" alt="صفحة localhost: 3000" width="100%" style="border-radius: 5px" />
 
 - سنضيف الآن التراكب إلى البث (Streamlabs و OBS و Twitch Studio وما إلى ذلك)
 
