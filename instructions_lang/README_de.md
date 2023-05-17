@@ -8,22 +8,16 @@
 
 **Schritte zum Einrichten des Overlays für Ihren Stream :**
 
-- Sie müssen das Projekt zunächst herunterladen.
-  <img alt="Projekt herunterladen" src="https://i.ibb.co/0BqgJdr/image.png" width="100%" style="border-radius: 5px">
+- Sie müssen zunächst die neueste Version des Overlays herunterladen, indem Sie Ihre Plattform auswählen.
+  <img alt="Das Projekt herunterladen" src="https://i.ibb.co/MPgFkJ8/image.png" width="100%" style="border-radius: 5px">
+  <img alt="Verschiedene Plattformen verfügbar" src="https://i.ibb.co/xJMf0gY/image.png" width="100%" style="border-radius: 5px">
 
 - Sie müssen die <code>zip/rar</code>-Datei entpacken.
 
-- Sie müssen Node.js installieren (wenn Node.js bereits installiert ist, können Sie die Installation überspringen):
+- Sie legen die ausführbare Datei und die Datei <code>settings.json</code> in denselben Ordner ab
+  <img src="https://i.ibb.co/vhwkTg6/image.png" alt="The executable file and the settings.json in the same folder" />
 
-  - Es gibt eine Node.js-Installationsdatei mit dem Namen :
-    <code>node-v18.16.0-64.msi</code>
-
-- Nach der Installation müssen Sie die Projektpakete mit dem Befehl <code>npm install</code> direkt im Projektordner installieren oder Sie können die Datei <code>install.cmd</code> ausführen, um die Projektpakete zu installieren.
-  <img src="https://i.ibb.co/HDYgmhK/image.png" alt="npm install" width="100%" style="border-radius: 5px" />
-  ODER
-  <img src="https://i.ibb.co/tYH7gfQ/image.png" alt="install.cmd" width="100%" style="border-radius: 5px"  />
-
-- Sie müssen die Datei <code>settings.json</code> aufrufen, um die Region Ihres Valorant-Kontos zu ändern. Die verfügbaren Regionen sind folgende
+- Nach der Installation müssen Sie in der Datei <code>settings.json</code> die Region ändern, die Ihrem Valorant-Konto entspricht, und Sie können die Sprache ändern, in der die Overlay-Informationen angezeigt werden, und dann speichern. Die verfügbaren Regionen und Sprachen sind wie folgt:
 
   | Name der Region | Code der Region |
   | --------------- | :-------------: |
@@ -34,12 +28,34 @@
   | Lateinamerika   |      latam      |
   | Brasilien       |       br        |
 
-    <img src="https://i.ibb.co/p226tSV/image.png" alt="Alle Regionen verfügbar" width="100%" style="border-radius: 5px" />
+  | Sprachenname                  | Sprachcode |
+  | ----------------------------- | :--------: |
+  | Arabisch (V.A.E.)             |   ar-AE    |
+  | Deutsch                       |   de-DE    |
+  | Englisch (Vereinigte Staaten) |   en-US    |
+  | Spanisch                      |   es-ES    |
+  | Spanisch (Mexiko)             |   es-MX    |
+  | Französisch                   |   fr-FR    |
+  | Indonesisch                   |   id-ID    |
+  | Italienisch                   |   it-IT    |
+  | Japanisch                     |   ja-JP    |
+  | Koreanisch                    |   ko-KR    |
+  | Polnisch                      |   pl-PL    |
+  | Portugiesisch (Brasilien)     |   pt-BR    |
+  | Russisch                      |   ru-RU    |
+  | Thailändisch                  |   th-TH    |
+  | Türkisch                      |   tr-TR    |
+  | Vietnamesisch                 |   vi-VN    |
+  | Chinesisch (vereinfacht)      |   zh-CN    |
+  | Chinesisch (Taiwan)           |   zh-TW    |
 
-- Sie können das Skript mit dem Befehl <code>npm run serve</code> starten oder die Datei <code>start.cmd</code> ausführen
-  <img src="https://i.ibb.co/cTwTsLX/image.png" alt="npm run serve" width="100%" style="border-radius: 5px" />
+<code>settings.json</code>
+<img src="https://i.ibb.co/MGLJ5Jz/image.png" alt="settings.json" width="100%" style="border-radius: 5px" />
 
-- Sie können die folgende Adresse aufrufen, um zu sehen, ob Sie Zugang zu Ihrem Overlay haben: http://localhost:3000
+- Sie können die ausführbare Datei in diesem Ordner ausführen.
+  <img src="https://i.ibb.co/Zh68gh3/image.png" alt="Starten der ausführbaren Datei" width="100%" style="border-radius: 5px" />
+
+- Du kannst die folgende Adresse aufrufen, um zu sehen, ob du Zugang zu deinem Overlay hast: http://localhost:3000 (Du musst vor Valorant oder dem Riot Client laufen)
   <img src="https://i.ibb.co/7KgmsQc/image.png" alt="Seite von localhost:3000" width="100%" style="border-radius: 5px" />
 
 - Jetzt fügen wir das Overlay zum Stream hinzu (Streamlabs, OBS, Twitch Studio usw.)

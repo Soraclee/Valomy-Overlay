@@ -1,44 +1,61 @@
-# Valomy (Valorant Overlay)
+# Valomy (Overlay Valorant)
 
 ![DOWNLOAD](https://img.shields.io/github/downloads/soraclee/valorantoverlay/total?style=for-the-badge)
 ![ISSUES](https://img.shields.io/github/issues/soraclee/valorantoverlay?style=for-the-badge)
 ![LICENSE](https://img.shields.io/github/license/soraclee/ValorantOverlay?style=for-the-badge)
 
-**Valomy** is a stream overlay for Valorant, it shows you automatically thanks to the Valorant api your rank and statistics of the account connected on Valorant
+**Valomy** is a stream overlay for Valorant, it shows you automatically through the Valorant api your rank and the statistics of the account connected to Valorant.
 
-**Steps to set up the overlay on your stream :**
+**Steps to set up the overlay on your stream:**
 
-- You must first download the project.
-  <img alt="Download Project" src="https://i.ibb.co/0BqgJdr/image.png" width="100%" style="border-radius: 5px">
+- You must first download the latest version of the overlay by choosing your platform.
+  <img alt="Download the project" src="https://i.ibb.co/MPgFkJ8/image.png" width="100%" style="border-radius: 5px">
+  <img alt="Different platforms available" src="https://i.ibb.co/xJMf0gY/image.png" width="100%" style="border-radius: 5px">
 
 - You need to extract the <code>zip/rar</code> file.
 
-- You must install Node.js (If Node.js is already installed you can skip the installation) :
+- You put the executable file and the <code>settings.json</code> file in the same folder
+  <img src="https://i.ibb.co/vhwkTg6/image.png" alt="The executable file and the settings.json in the same folder" />
 
-  - A Node.js installation file is available with the name : <code>node-v18.16.0-64.msi</code>
+- Once installed, you need to go to the <code>settings.json</code> file to change your region corresponding to your Valorant account and you can change the language to display the overlay information and then save. The regions and languages available are as follows:
 
-- Once installed, you must install the project packages with the <code>npm install</code> command directly in the project folder or you can run the <code>install.cmd</code> file to install the project packages.
-  <img src="https://i.ibb.co/HDYgmhK/image.png" alt="npm install" width="100%" style="border-radius: 5px" />
-  OR
-  <img src="https://i.ibb.co/tYH7gfQ/image.png" alt="install.cmd" width="100%" style="border-radius: 5px"  />
+  | Name of the region | Region Code |
+  | ------------------ | :---------: |
+  | Europe             |     eu      |
+  | Asia Pacific       |     ap      |
+  | North America      |     na      |
+  | Sud Korea          |     kr      |
+  | Latin America      |    latam    |
+  | Brazil             |     br      |
 
-- You must go to the <code>settings.json</code> file to change your region corresponding to your Valorant account, the available regions are the following:
+  | Language name           | Language code |
+  | ----------------------- | :-----------: |
+  | Arabic (U.A.E.)         |     ar-AE     |
+  | German                  |     de-DE     |
+  | English (United States) |     en-US     |
+  | Spanish                 |     es-ES     |
+  | Spanish (Mexico)        |     es-MX     |
+  | French                  |     fr-FR     |
+  | Indonesian              |     id-ID     |
+  | Italian                 |     it-IT     |
+  | Japanese                |     ja-JP     |
+  | Korean                  |     ko-KR     |
+  | Polish                  |     pl-PL     |
+  | Portuguese (Brazil)     |     pt-BR     |
+  | Russian                 |     ru-RU     |
+  | Thai                    |     th-TH     |
+  | Turkish                 |     tr-TR     |
+  | Vietnamese              |     vi-VN     |
+  | Chinese (simplified)    |     zh-CN     |
+  | Chinese (Taiwan)        |     zh-TW     |
 
-  | Region Name   | Region Code |
-  | ------------- | :---------: |
-  | Europe        |     eu      |
-  | Asia Pacific  |     ap      |
-  | North America |     na      |
-  | Sud Korea     |     kr      |
-  | Latin America |    latam    |
-  | Brazil        |     br      |
+<code>settings.json</code>
+<img src="https://i.ibb.co/MGLJ5Jz/image.png" alt="settings.json" width="100%" style="border-radius: 5px" />
 
-    <img src="https://i.ibb.co/p226tSV/image.png" alt="All regions available" width="100%" style="border-radius: 5px" />
+- You can run the executable in the folder.
+  <img src="https://i.ibb.co/Zh68gh3/image.png" alt="Launching the executable" width="100%" style="border-radius: 5px" />
 
-- You can start the script with the command <code>npm run serve</code> or run the file <code>start.cmd</code>
-  <img src="https://i.ibb.co/cTwTsLX/image.png" alt="npm run serve" width="100%" style="border-radius: 5px" />
-
-- You can go to the following address to see if you have access to your overlay : http://localhost:3000
+- You can go to the following address to see if you have access to your overlay: http://localhost:3000 (You must run before Valorant or the Riot Client)
   <img src="https://i.ibb.co/7KgmsQc/image.png" alt="Page of localhost:3000" width="100%" style="border-radius: 5px" />
 
 - Now we will add the overlay to the stream (Streamlabs, OBS, Twitch Studio etc.)
@@ -48,7 +65,7 @@
   - Then you put the url localhost in the url of the "Browser Source" : http://localhost:3000
   - Put the dimensions 1920x1080.
 
-    <img alt="On your broadcast platform" src="https://i.ibb.co/JnNjkWY/image.png" width="100%" style="border-radius: 5px" />
+      <img alt="On your broadcast platform" src="https://i.ibb.co/JnNjkWY/image.png" width="100%" style="border-radius: 5px" />
 
     <img alt="Adding a new source to your scene" src="https://i.ibb.co/L0vft4D/image.png" width="100%" style="border-radius: 5px" />
 
@@ -62,3 +79,19 @@
 
 Every 4 minutes the overlay will change the way it is displayed, every 4 minutes it will only display the rank.
 If the overlay does not find your account, it will default to Soracle#Anemy's profile, until it finds your profile. (You must be logged into the Riot Client and have it running at least for it to find you).
+
+**Fonctionnalités :**
+
+- Display the rank and some data of your account connected to Valorant, if you change your account the overlay will take into account the information automatically. The data displayed on the overlay :
+
+  - The rank
+  - The level of the account
+  - The elo of the account
+  - The number of games won this act.
+
+- During the agent selection phase, the selected agent will be displayed on the overlay with the following data:
+  - The selected agent.
+  - The agent's role
+  - The agent's description
+
+Other features will arrive little by little, I invite you to see if updates of the overlay are available to take advantage of new features in the future.

@@ -8,22 +8,16 @@
 
 **스트림에서 오버레이를 설정하는 단계 :**
 
-- 먼저 프로젝트를 다운로드해야 합니다.
-  <img alt="프로젝트 다운로드" src="https://i.ibb.co/0BqgJdr/image.png" width="100%" style="border-radius: 5px">
+- 먼저 플랫폼을 선택하여 최신 버전의 오버레이를 다운로드해야 합니다.
+  <img alt="프로젝트 다운로드" src="https://i.ibb.co/MPgFkJ8/image.png" width="100%" style="border-radius: 5px">
+  <img alt="다양한 플랫폼 사용 가능" src="https://i.ibb.co/xJMf0gY/image.png" width="100%" style="border-radius: 5px">
 
 - <code>zip/rar</code> 파일을 압축을 풀어야 합니다.
 
-- Node.js를 설치해야 합니다(이미 설치되어 있는 경우 설치를 건너뛸 수 있습니다):
+- 실행 파일과 <code>settings.json</code> 파일을 같은 폴더에 넣습니다.
+  <img src="https://i.ibb.co/vhwkTg6/image.png" alt="실행 파일과 settings.json이 같은 폴더에 있습니다." />
 
-  - 라는 이름의 Node.js 설치 파일을 사용할 수 있습니다:
-    <code>node-v18.16.0-64.msi</code>
-
-- 설치가 완료되면 프로젝트 폴더에서 직접 <code>npm install</code> 명령으로 프로젝트 패키지를 설치하거나 <code>install.cmd</code> 파일을 실행하여 프로젝트 패키지를 설치해야 합니다.
-  <img src="https://i.ibb.co/HDYgmhK/image.png" alt="npm install" width="100%" style="border-radius: 5px" />
-  또는
-  <img src="https://i.ibb.co/tYH7gfQ/image.png" alt="install.cmd" width="100%" style="border-radius: 5px"  />
-
-- 발로란트 계정에 해당하는 지역을 변경하려면 <code>settings.json</code> 파일로 이동해야 하며, 사용 가능한 지역은 다음과 같습니다:
+- 설치가 완료되면 <code>settings.json</code> 파일로 이동하여 발로란트 계정에 해당하는 지역을 변경하고 오버레이 정보를 표시할 언어를 변경한 다음 저장해야 합니다. 사용 가능한 지역과 언어는 다음과 같습니다:
 
   | 지역 이름          | 지역 코드 |
   | ------------------ | :-------: |
@@ -34,12 +28,34 @@
   | 라틴 아메리카      |   latam   |
   | 브라질             |    br     |
 
-    <img src="https://i.ibb.co/p226tSV/image.png" alt="사용 가능한 모든 지역" width="100%" style="border-radius: 5px" />
+  | 언어 이름            | 언어 코드 |
+  | -------------------- | :-------: |
+  | 아랍어(아랍에미리트) |   ar-AE   |
+  | 독일어               |   de-DE   |
+  | 영어(미국)           |   en-US   |
+  | 스페인어             |   es-ES   |
+  | 스페인어(멕시코)     |   es-MX   |
+  | 프랑스어             |   fr-FR   |
+  | 인도네시아어         |   id-ID   |
+  | 이탈리아어           |   it-IT   |
+  | 일본어               |   ja-JP   |
+  | 한국어               |   ko-KR   |
+  | 폴란드어             |   pl-PL   |
+  | 포르투갈어(브라질)   |   pt-BR   |
+  | 러시아어             |   ru-RU   |
+  | 태국어               |   th-TH   |
+  | 터키어               |   tr-TR   |
+  | 베트남어             |   vi-VN   |
+  | 중국어(간체)         |   zh-CN   |
+  | 중국어(대만)         |   zh-TW   |
 
-- <code>npm run serve</code> 명령으로 스크립트를 시작하거나 <code>start.cmd</code> 파일을 실행할 수 있습니다.
-  <img src="https://i.ibb.co/cTwTsLX/image.png" alt="npm run serve" width="100%" style="border-radius: 5px" />
+<code>settings.json</code>
+<img src="https://i.ibb.co/MGLJ5Jz/image.png" alt="settings.json" width="100%" style="border-radius: 5px" />
 
-- 다음 주소로 이동하여 오버레이에 액세스할 수 있는지 확인할 수 있습니다: http://localhost:3000.
+- 폴더에서 실행 파일을 실행할 수 있습니다.
+  <img src="https://i.ibb.co/Zh68gh3/image.png" alt="실행 파일 시작하기" width="100%" style="border-radius: 5px" />
+
+- 다음 주소로 이동하여 오버레이에 액세스할 수 있는지 확인할 수 있습니다: http://localhost:3000 (Valorant 또는 Riot 클라이언트보다 먼저 실행해야 합니다).
   <img src="https://i.ibb.co/7KgmsQc/image.png" alt="localhost:3000 페이지" width="100%" style="border-radius: 5px" />
 
 - 이제 스트림에 오버레이를 추가합니다(Streamlabs, OBS, Twitch Studio 등).

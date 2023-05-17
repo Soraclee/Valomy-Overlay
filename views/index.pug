@@ -105,7 +105,16 @@ block content
                         } else {
                             document.querySelector('.pregame-agent-infos').classList.add("slide-pregame-in")
                             document.querySelector('.pregame-agent-infos').classList.remove("slide-pregame-out")
+                            document.querySelector('.agent-description').innerText = `Loading...`;
+                            document.querySelector('.agent-role-name').innerText = `Loading...`;
+                            document.querySelector('.img-agent-role').src = "https://i.ibb.co/qgYnXpq/Empty.png";
                         }
+                    } else {
+                        document.querySelector('.pregame-agent-infos').classList.add("slide-pregame-in")
+                        document.querySelector('.pregame-agent-infos').classList.remove("slide-pregame-out")
+                        document.querySelector('.agent-description').innerText = `Loading...`;
+                        document.querySelector('.agent-role-name').innerText = `Loading...`;
+                        document.querySelector('.img-agent-role').src = "https://i.ibb.co/qgYnXpq/Empty.png";
                     }
                 } else {
                     document.querySelector('.pregame_select').classList.add("slide-pregame-in")
