@@ -35,8 +35,8 @@ O **Valomy** é um fluxo de sobreposição para o Valorant, que mostra automatic
   | Inglês (Estados Unidos) |      en-US       |
   | Espanhol                |      es-ES       |
   | Espanhol (México)       |      es-MX       |
-  | Francês                 |      en-GB       |
-  | Indonésio               |      id-id       |
+  | Francês                 |      fr-FR       |
+  | Indonésio               |      id-ID       |
   | Italiano                |      it IT       |
   | Japonês                 |      ja-JP       |
   | Coreano                 |      ko-KR       |

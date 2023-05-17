@@ -8,21 +8,16 @@
 
 **ストリームにオーバーレイをセットアップする手順 ：**
 
-- まず、プロジェクトをダウンロードする必要があります。
-  <img alt="ダウンロードプロジェクト" src="https://i.ibb.co/0BqgJdr/image.png" width="100%" style="border-radius: 5px">
+- まず、プラットフォームを選択して、最新版のオーバーレイをダウンロードする必要があります。
+  <img alt="プロジェクトのダウンロード" src="https://i.ibb.co/MPgFkJ8/image.png" width="100%" style="border-radius: 5px">
+  <img alt="さまざまなプラットフォームが利用可能" src="https://i.ibb.co/xJMf0gY/image.png" width="100%" style="border-radius: 5px">
 
 - <code>zip/rar</code>ファイルを解凍する必要があります。
 
-- Node.js をインストールする必要があります（Node.js がすでにインストールされている場合は、インストールを省略することができます）：
+- 実行ファイルと<code>settings.json</code>ファイルを同じフォルダに置くと
+  <img src="https://i.ibb.co/vhwkTg6/image.png" alt="実行ファイルとsettings.jsonが同じフォルダにあること" />
 
-  - Node.js のインストールファイルは、.Node.js という名前で用意されています：<code>node-v18.16.0-64.msi</code>
-
-- インストール後は、プロジェクトフォルダに直接<code>npm install</code>コマンドでプロジェクトパッケージをインストールするか、<code>install.cmd</code>ファイルを実行してプロジェクトパッケージをインストールする必要があります。
-  <img src="https://i.ibb.co/HDYgmhK/image.png" alt="npm install" width="100%" style="border-radius: 5px" />
-  または
-  <img src="https://i.ibb.co/tYH7gfQ/image.png" alt="install.cmd" width="100%" style="border-radius: 5px"  />
-
-- <code>settings.json</code>VALORANT アカウントに対応する地域を変更する必要があり、利用可能な地域は以下の通りです：
+- インストール後は、<code>settings.json</code>ファイルで、Valorant アカウントに対応する地域を変更し、オーバーレイ情報を表示する言語を変更して保存する必要があります。利用可能な地域と言語は以下の通りです：
 
   | 地域名         | 地域コード |
   | -------------- | :--------: |
@@ -33,12 +28,34 @@
   | ラテンアメリカ |   latam    |
   | ブラジル       |     br     |
 
-    <img src="https://i.ibb.co/p226tSV/image.png" alt="全地域で利用可能" width="100%" style="border-radius: 5px" />
+  | 言語名                    | 言語コード |
+  | ------------------------- | :--------: |
+  | アラビア語（U.A.E.）      |   ar-AE    |
+  | ジャーマン                |   de-DE    |
+  | 英語（アメリカ）          |   en-US    |
+  | スパニッシュ              |   es-ES    |
+  | スペイン語（メキシコ）    |   es-MX    |
+  | フレンチ                  |   fr-FR    |
+  | インドネシア語            |   id-ID    |
+  | イタリアン                |   it-IT    |
+  | やまと                    |   ja-JP    |
+  | コリアン                  |   ko-KR    |
+  | ポーリッシュ              |   pl-PL    |
+  | ポルトガル語（ブラジル）s |   pt-BR    |
+  | ロシアン                  |   ru-RU    |
+  | タイ人                    |   th-TH    |
+  | トルコ語                  |   tr-TR    |
+  | ベトナム                  |   vi-VN    |
+  | 中国語（簡体字）          |   zh-CN    |
+  | ちゅうごくけい            |   zh-TW    |
 
-- <code>npm run serve</code>というコマンドでスクリプトを起動するか、<code>start.cmd</code>というファイルを実行することができます。
-  <img src="https://i.ibb.co/cTwTsLX/image.png" alt="npm run serve" width="100%" style="border-radius: 5px" />
+<code>settings.json</code>
+<img src="https://i.ibb.co/MGLJ5Jz/image.png" alt="settings.json" width="100%" style="border-radius: 5px" />
 
-- 以下のアドレスにアクセスすると、自分のオーバーレイを確認することができます : http://localhost:3000
+- フォルダー内の実行ファイルを実行することができます。
+  <img src="https://i.ibb.co/Zh68gh3/image.png" alt="実行ファイルを起動する" width="100%" style="border-radius: 5px" />
+
+- 次のアドレスにアクセスして、オーバーレイにアクセスできるかどうかを確認できます：http://localhost:3000（Valorant または Riot Client の前に実行する必要があります）。
   <img src="https://i.ibb.co/7KgmsQc/image.png" alt="localhost:3000のページ" width="100%" style="border-radius: 5px" />
 
 - それでは、ストリーム（Streamlabs、OBS、Twitch Studio など）にオーバーレイを追加します。

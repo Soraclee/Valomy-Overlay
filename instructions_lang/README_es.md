@@ -28,26 +28,26 @@
   | América Latina      |      latam       |
   | Brasil              |        br        |
 
-| Nombre del idioma       | Código de idioma |
-| ----------------------- | :--------------: |
-| Árabe (EAU)             |      ar-AE       |
-| Alemán                  |      de-DE       |
-| Inglés (Estados Unidos) |      es-US       |
-| Español                 |      es-ES       |
-| Español (México)        |      es-MX       |
-| Francés                 |      es-ES       |
-| Indonesio               |      id-id       |
-| Italiano                |      es TI       |
-| Japonés                 |      ja-JP       |
-| Coreano                 |      ko-KR       |
-| Polaco                  |      pl-PL       |
-| Portugués (Brasil)      |      pt-BR       |
-| Ruso                    |      ru-RU       |
-| Tailandés               |      th-TH       |
-| Turco                   |      tr-TR       |
-| Vietnamita              |      vi-VN       |
-| Chino (simplificado)    |      zh-CN       |
-| Chino (Taiwán)          |      zh-TW       |
+  | Nombre del idioma       | Código de idioma |
+  | ----------------------- | :--------------: |
+  | Árabe (EAU)             |      ar-AE       |
+  | Alemán                  |      de-DE       |
+  | Inglés (Estados Unidos) |      en-US       |
+  | Español                 |      es-ES       |
+  | Español (México)        |      es-MX       |
+  | Francés                 |      fr-FR       |
+  | Indonesio               |      id-ID       |
+  | Italiano                |      it-IT       |
+  | Japonés                 |      ja-JP       |
+  | Coreano                 |      ko-KR       |
+  | Polaco                  |      pl-PL       |
+  | Portugués (Brasil)      |      pt-BR       |
+  | Ruso                    |      ru-RU       |
+  | Tailandés               |      th-TH       |
+  | Turco                   |      tr-TR       |
+  | Vietnamita              |      vi-VN       |
+  | Chino (simplificado)    |      zh-CN       |
+  | Chino (Taiwán)          |      zh-TW       |
 
 <code>settings.json</code>
 <img src="https://i.ibb.co/MGLJ5Jz/image.png" alt="settings.json" width="100%" style="border-radius: 5px" />

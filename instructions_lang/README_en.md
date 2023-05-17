@@ -35,9 +35,9 @@
   | English (United States) |     en-US     |
   | Spanish                 |     es-ES     |
   | Spanish (Mexico)        |     es-MX     |
-  | French                  |     en-GB     |
-  | Indonesian              |     id-id     |
-  | Italian                 |     it IT     |
+  | French                  |     fr-FR     |
+  | Indonesian              |     id-ID     |
+  | Italian                 |     it-IT     |
   | Japanese                |     ja-JP     |
   | Korean                  |     ko-KR     |
   | Polish                  |     pl-PL     |
