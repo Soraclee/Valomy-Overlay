@@ -234,6 +234,7 @@ hr {
   padding: 5px;
   color: #fff;
   border-radius: 5px 5px 0px 0px;
+  max-width: 185px;
 }
 
 .pregame .top-title p {

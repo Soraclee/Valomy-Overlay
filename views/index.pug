@@ -54,6 +54,18 @@ block content
             pregameAgentInfos = resultAgent.data;
         }
 
+        function getSeasonsAvailable(seasons) {
+            let seasonsAvailable = [];
+            
+            for (const [key, value] of Object.entries(seasons)) {
+                if(!value.error) {
+                    seasonsAvailable.push(value);
+                }
+            }
+
+            return seasonsAvailable;
+        }
+
         setInterval(updateSubjectPlayer, 10000)
 
         async function updateDisplay() {
@@ -69,7 +81,9 @@ block content
 
                 // Update Display
 
-                let last_season = dataPlayer.by_season[Object.keys(dataPlayer.by_season)[Object.keys(dataPlayer.by_season).length - 1]]
+                let allSeasonsAvailable = getSeasonsAvailable(dataPlayer.by_season)
+
+                let last_season = allSeasonsAvailable[allSeasonsAvailable.length - 1]
 
                 if(dataPlayer.current_data.elo != null) {
                     document.querySelector('.overlay-background').style.backgroundImage = `url(${infosPlayerData.card.wide})`
